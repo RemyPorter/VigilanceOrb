@@ -1,0 +1,8 @@
+win_event: # they get a drink!
+    key: 5 # the midi key
+    script:
+        - play: /Users/remy/Movies/Fairlight Sound Library/Media Files/BF FG.M.wav
+        - wait: 5
+        - log: Hello World!
+        - wait: 5
+        - log: Goodbye World!
