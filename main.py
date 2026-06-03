@@ -26,7 +26,9 @@ class Midi:
             if msg.type == "note_on":
                 continue
             if msg.note in script:
-                apply(script[msg].event_name, script[msg].script)
+                print(f"Note {msg.note} received")
+                apply(script[msg.note].event_name, script[msg.note].script)
+                print("Script applied")
 
 
 

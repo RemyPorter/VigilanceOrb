@@ -10,4 +10,5 @@ IR_CODES = {
 
 def send_ir(code:str):
     file = IR_CODES.get(code, "idle")
+    print(" ".join(["ir-ctl", "-d", "/dev/lirc0", "-s", file]))
     call(["ir-ctl", "-d", "/dev/lirc0", "-s", file])

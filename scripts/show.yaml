@@ -11,7 +11,7 @@ success:
         - play: sounds/success16.wav
         - wait: 0.5
         - send: success
-        - wait: 1
+        - wait: 5
         - send: idle
 fail:
     key: 44
@@ -20,5 +20,5 @@ fail:
         - play: sounds/failure16.wav
         - wait: 0.5
         - send: fail
-        - wait: 1
+        - wait: 5
         - send: idle
