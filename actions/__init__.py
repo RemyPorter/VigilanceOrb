@@ -1,6 +1,6 @@
 import time
 from typing import Dict, Callable, List, Any
-from .ir_codes import IR_CODES
+from .ir_codes import send_ir
 from .audio import get_audio
 
 """Actions we want to perform"""
@@ -14,8 +14,7 @@ def log(msg:str):
 
 def send(ir_code:str):
     log(f"Sending IR command {ir_code}")
-    to_send = IR_CODES[ir_code]
-    # invoke sender
+    send_ir(ir_code)
 
 def play(audio_file:str):
     log(f"Playing {audio_file}")
