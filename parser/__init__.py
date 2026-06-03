@@ -14,7 +14,7 @@ def load(path:Path):
     return y.load((path.open()))
 
 def parse(loaded:dict):
-    return [
-        Script(name,v["key"],v["script"])
+    return {
+        v["key"]: Script(name,v["key"],v["script"])
         for name,v in loaded.items()
-    ]
+    }

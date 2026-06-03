@@ -1,0 +1,24 @@
+startup:
+    key: 40
+    script:
+        - send: startup
+        - log: Started the orb
+        - play: sounds/vanish16.wav
+success:
+    key: 82
+    script:
+        - wait: 2
+        - play: sounds/success16.wav
+        - wait: 0.5
+        - send: success
+        - wait: 1
+        - send: idle
+fail:
+    key: 44
+    script:
+        - wait: 2
+        - play: sounds/failure16.wav
+        - wait: 0.5
+        - send: fail
+        - wait: 1
+        - send: idle

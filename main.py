@@ -5,7 +5,7 @@ from actions.audio import get_audio
 import mido
 
 def preload(parsed):
-    for event in parsed:
+    for event in parsed.values():
         for item in event.script:
             if "play" in item:
                 item["play"] = Path(item["play"])
@@ -19,17 +19,23 @@ class Midi:
             if DEVICE_CONTAINS in port:
                 self._input = mido.open_input(port)
                 return
+        raise Exception("NO MIDI!")
     
     def spin(self, script):
         for msg in self._input:
-            breakpoint()
+            if msg.type == "note_on":
+                continue
+            if msg.note in script:
+                apply(script[msg].event_name, script[msg].script)
+
 
 
 def main():
-    script = load(Path("scripts/test.yaml"))
+    script = load(Path("scripts/show.yaml"))
     parsed = parse(script)
     preload(parsed)
-    apply(parsed[0].event_name, parsed[0].script)
+    m = Midi()
+    m.spin(parsed)
 
 
 if __name__ == "__main__":
