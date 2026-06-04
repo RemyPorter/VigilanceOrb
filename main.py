@@ -39,6 +39,7 @@ def main():
     script = load(Path("scripts/show.yaml"))
     parsed = parse(script)
     preload(parsed)
+    get_audio().play("sounds/success16.wav")
     m = Midi()
     m.spin(parsed)
 

@@ -1,0 +1,12 @@
+[Unit]
+Description=orb
+
+[Service]
+User=remy
+WorkingDirectory=/home/remy/Orb
+ExecStart=/home/remy/.local/bin/uv run python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
