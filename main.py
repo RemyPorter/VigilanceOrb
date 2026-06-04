@@ -23,12 +23,15 @@ class Midi:
     
     def spin(self, script):
         for msg in self._input:
-            if msg.type == "note_on":
-                continue
-            if msg.note in script:
-                print(f"Note {msg.note} received")
-                apply(script[msg.note].event_name, script[msg.note].script)
-                print("Script applied")
+            try:
+                if msg.type == "note_on":
+                    continue
+                if msg.note in script:
+                    print(f"Note {msg.note} received")
+                    apply(script[msg.note].event_name, script[msg.note].script)
+                    print("Script applied")
+            except:
+                pass
 
 
 
